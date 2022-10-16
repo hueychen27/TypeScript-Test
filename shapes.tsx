@@ -1,6 +1,10 @@
+function randomNumber(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 class Line {
     width: number;
-    constructor(width: number) {
+    constructor (width: number) {
         this.width = width;
     }
 
@@ -11,7 +15,7 @@ class Line {
 
 class Rectangle extends Line {
     height: number;
-    constructor(width: number, height: number) {
+    constructor (width: number, height: number) {
         super(width);
         this.height = height;
     }
@@ -25,7 +29,7 @@ class Rectangle extends Line {
 
 class rectangularCuboid extends Rectangle {
     depth: number;
-    constructor(width: number, height: number, depth: number) {
+    constructor (width: number, height: number, depth: number) {
         super(width, height);
         this.depth = depth;
     }
@@ -35,15 +39,16 @@ class rectangularCuboid extends Rectangle {
     }
 }
 
-let myNormalLine = new Line(2);
+let myNormalLine = new Line(randomNumber(1, 99));
 let myNormalLength = myNormalLine.getLength();
+console.log(`Length of Line: ${myNormalLength}`)
 
-let myCoolRectangle = new Rectangle(2, 3);
+let myCoolRectangle = new Rectangle(randomNumber(1, 99), randomNumber(1, 99));
 let myCoolLength = myCoolRectangle.getLength();
 let myCoolArea = myCoolRectangle.getArea();
 console.log(`Length of Rectangle: ${myCoolLength}, Area of Rectangle: ${myCoolArea}`);
 
-let myCoolerRectangularCuboid = new rectangularCuboid(2, 3, 4);
+let myCoolerRectangularCuboid = new rectangularCuboid(randomNumber(1, 99), randomNumber(1, 99), randomNumber(1, 99));
 let myCoolerLength = myCoolerRectangularCuboid.getLength();
 let myCoolerArea = myCoolerRectangularCuboid.getArea();
 let myCoolerVolume = myCoolerRectangularCuboid.getVolume();
